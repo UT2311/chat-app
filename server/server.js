@@ -13,6 +13,13 @@ io.on('connection',(socket)=>{
     console.log('nre user connected');
     socket.on('disconnect',()=>{
         console.log('disconnected from server');
+    });
+    socket.emit('newEmail',{
+        from:"utkarsh",
+        body:"hey there"
+    });
+    socket.on('createEmail',(emailData)=>{
+        console.log(emailData);
     })
 });
 server.listen(port,()=>{
